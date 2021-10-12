@@ -22,11 +22,15 @@
             console.log('Perdimos comunicacion con el servidor');
         })
 
-        socket.emit('mensaje', {nombre: 'Mensaje from client'});
-
         socket.on('mensaje', function(payload) {
             console.log('Escuchando: ', payload);
         });
+
+        socket.on('active-bands', function(payload) {
+            console.clear();
+            console.table( payload);
+        });
+
     </script>
 </body>
 </html>
